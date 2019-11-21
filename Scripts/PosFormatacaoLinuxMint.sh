@@ -40,6 +40,7 @@ sudo add-apt-repository universe && sudo apt-get update -y;
 sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; # Google Chrome
 sudo wget https://guardiao.itau.com.br/warsaw/warsaw_setup_64.deb -O warsaw.deb; # Guardião Itaú
 sudo wget https://www.thefanclub.co.za/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://www.thefanclub.co.za/sites/default/files/public/overgrive/overgrive_3.3.3_all.deb&nid=168 -O overgrive.deb; # OverGrive (Sincronização Google Drive)
+sudo wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -O teamviewer.deb; # TeamViewer
 
 sudo dpkg -i *.deb;
 
