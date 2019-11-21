@@ -6,12 +6,12 @@ sudo killall apt apt-get;
 
 # Update no apt-get
 
-sudo apt-get update;
+sudo apt-get update -y;
 sudo apt upgrade -y;
 
 # Instalar programas essenciais
 
-sudo apt-get install vim whatsapp-desktop htop wine-installer vlc git filezilla thunderbird putty mint-meta-codecs steam:i386 audacity spotify-client gparted snapd -y
+sudo apt-get install vim whatsapp-desktop htop wine-installer vlc git filezilla thunderbird putty mint-meta-codecs steam:i386 audacity spotify-client gparted snapd libnss3-tools libcurl3 -y
 
 # Instalar programas via Flatpak
 
@@ -21,7 +21,7 @@ sudo flatpak install flathub org.telegram.desktop com.discordapp.Discord com.obs
 
 if lspci | grep "NVIDIA" > /dev/null
 then
-	sudo apt-get install nvidia-settings;
+	sudo apt-get install nvidia-settings -y;
 fi
 
 # Mudar para pasta onde será baixado os .deb
@@ -30,17 +30,21 @@ mkdir /home/$USER/Documentos/Programas;
 
 cd /home/$USER/Documentos/Programas;
 
-# Instalar o Google Chrome e OpenDrive (Google Drive)
+# Preparar instalação do OverGrive
 
-sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb;
-sugo wget https://github.com/liberodark/ODrive/releases/download/0.3.0/odrive_0.3.0_amd64.deb
+sudo add-apt-repository -y ppa:jonathonf/python-3.5 && sudo apt update && sudo apt install python3.5 -y;
+sudo add-apt-repository universe && sudo apt-get update -y;
+
+# Baixar e instalar .DEB
+
+sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; # Google Chrome
+sudo wget https://guardiao.itau.com.br/warsaw/warsaw_setup_64.deb -O warsaw.deb; # Guardião Itaú
+sudo wget https://www.thefanclub.co.za/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://www.thefanclub.co.za/sites/default/files/public/overgrive/overgrive_3.3.3_all.deb&nid=168 -O overgrive.deb; # OverGrive (Sincronização Google Drive)
 
 sudo dpkg -i *.deb;
 
 
 # Instalar servidor web
-
-# sudo apt install -y apache2 php php-cli php-common php-gd php-mbstring php-intl php-xml php-zip php-pear libapache2-mod-php mysql-server mysql-client php-mysql phpmyadmin;
 
 sudo apt-get install lamp-server^ -y;
 
@@ -50,3 +54,8 @@ sudo apt-get install python-gtk2 glade python-gtk-vnc python-glade2 python-confi
 git clone https://github.com/OpenXenManager/openxenmanager.git;
 cd openxenmanager;
 sudo python setup.py install;
+
+# Instalar todas as dependencias faltantes dos programas instalados acima
+
+sudo apt install -f -y;
+
