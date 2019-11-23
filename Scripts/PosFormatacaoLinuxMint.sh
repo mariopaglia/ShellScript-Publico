@@ -44,19 +44,21 @@ sudo wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -O
 
 sudo dpkg -i *.deb;
 
-
 # Instalar servidor web
 
 sudo apt-get install lamp-server^ -y;
 
-# Instalar XenCenter
+# Instalar Stacer (Limpeza e Otimização)
 
-sudo apt-get install python-gtk2 glade python-gtk-vnc python-glade2 python-configobj python-setuptools -y;
-git clone https://github.com/OpenXenManager/openxenmanager.git;
-cd openxenmanager;
-sudo python setup.py install;
+sudo add-apt-repository ppa:oguzhaninan/stacer -y;
+sudo apt-get update;
+sudo apt-get install stacer -y;
 
 # Instalar todas as dependencias faltantes dos programas instalados acima
 
 sudo apt install -f -y;
 
+# Limpeza do sistema
+
+sudo apt-get autoremove -y;
+sudo apt-get autoclean -y;
