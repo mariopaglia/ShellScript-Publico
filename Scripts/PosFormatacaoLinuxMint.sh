@@ -11,7 +11,7 @@ sudo apt upgrade -y;
 
 # Instalar programas essenciais
 
-sudo apt-get install vim whatsapp-desktop htop wine-installer vlc git filezilla thunderbird putty mint-meta-codecs steam:i386 audacity spotify-client gparted snapd libnss3-tools libcurl3 -y
+sudo apt-get install vim whatsapp-desktop htop wine-installer vlc git filezilla thunderbird putty mint-meta-codecs steam:i386 audacity spotify-client gparted snapd flameshot libnss3-tools libcurl3 -y
 
 # Instalar programas via Flatpak
 
@@ -37,9 +37,9 @@ sudo add-apt-repository universe && sudo apt-get update -y;
 
 # Baixar e instalar .DEB
 
-sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; # Google Chrome
+sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google_chrome.deb; # Google Chrome
 sudo wget https://guardiao.itau.com.br/warsaw/warsaw_setup_64.deb -O warsaw.deb; # Guardião Itaú
-sudo wget https://www.thefanclub.co.za/sites/all/modules/pubdlcnt/pubdlcnt.php?file=https://www.thefanclub.co.za/sites/default/files/public/overgrive/overgrive_3.3.3_all.deb&nid=168 -O overgrive.deb; # OverGrive (Sincronização Google Drive)
+sudo wget https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.0.24.40626-bionic_amd64.deb -O insync.deb; # Insync (Google Drive)
 sudo wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -O teamviewer.deb; # TeamViewer
 
 sudo dpkg -i *.deb;
@@ -53,6 +53,15 @@ sudo apt-get install lamp-server^ -y;
 sudo add-apt-repository ppa:oguzhaninan/stacer -y;
 sudo apt-get update;
 sudo apt-get install stacer -y;
+
+# Instalar VirtualBox
+
+sudo echo "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" >> /etc/apt/sources.list;
+sudo wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -;
+sudo wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -;
+sudo apt update;
+sudo apt upgrade;
+sudo apt install virtualbox;
 
 # Instalar todas as dependencias faltantes dos programas instalados acima
 
