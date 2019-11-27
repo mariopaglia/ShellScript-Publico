@@ -11,7 +11,7 @@ sudo apt upgrade -y;
 
 # Instalar programas essenciais
 
-sudo apt-get install vim whatsapp-desktop htop wine-installer vlc git filezilla thunderbird putty mint-meta-codecs steam:i386 audacity spotify-client gparted snapd flameshot libnss3-tools libcurl3 -y
+sudo apt-get install vim whatsapp-desktop htop wine-installer vlc git filezilla thunderbird putty mint-meta-codecs steam:i386 audacity spotify-client gparted snapd flameshot libnss3-tools libcurl3 sshpass -y
 
 # Instalar programas via Flatpak
 
