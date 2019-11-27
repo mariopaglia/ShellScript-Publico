@@ -47,6 +47,16 @@ sudo dpkg -i *.deb;
 # Instalar servidor web
 
 sudo apt-get install lamp-server^ -y;
+sudo apt-get install phpmyadmin -y;
+
+sudo mysql -e "
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+FLUSH PRIVILEGES;
+"
+
+USUARIO=$(sudo cat /etc/passwd | grep "/bin/bash" | grep -v "0:0" | awk -F ":" {'print $1'})
+
+sudo chown -R $USUARIO:$USUARIO /var/www/html/
 
 # Instalar Stacer (Limpeza e Otimização)
 
