@@ -56,7 +56,11 @@ FLUSH PRIVILEGES;
 
 USUARIO=$(sudo cat /etc/passwd | grep "/bin/bash" | grep -v "0:0" | awk -F ":" {'print $1'})
 
-sudo chown -R $USUARIO:$USUARIO /var/www/html/
+sudo chown -R www-data:www-data /var/www/html/
+
+# Instalar dependencia Imagick para o PHP
+
+sudo apt-get install php-imagick;
 
 # Instalar Stacer (Limpeza e Otimização)
 
