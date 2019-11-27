@@ -102,6 +102,11 @@ sudo apt update -y;
 sudo apt upgrade -y;
 sudo apt install virtualbox virtualbox-qt;
 
+# Configurar usuário e e-mail global do Git
+
+git config --global user.name "Agência H1 Code"
+git config --global user.email contato@h1code.com.br
+
 # Instalar todas as dependencias faltantes dos programas instalados acima
 
 sudo apt install -f -y;
